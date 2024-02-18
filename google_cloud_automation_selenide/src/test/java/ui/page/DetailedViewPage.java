@@ -2,8 +2,12 @@ package ui.page;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DetailedViewPage extends AbstractPage {
@@ -64,6 +68,7 @@ public class DetailedViewPage extends AbstractPage {
 
 
     public String getEstimatedCost() {
+        estimatedCost.shouldBe(exist);
         return estimatedCost.getText().replaceAll("[^0-9.,]", "");
     }
 }
